@@ -2,9 +2,21 @@
   "name": "sharelaneqa12j_aliaksandr_krakasevich",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Aliaksandr Krakasevich",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^22.9.0",
+    "@types/selenium-webdriver": "^4.1.27",
+    "chai": "^4.5.0",
+    "chromedriver": "^130.0.4",
+    "edgedriver": "^6.1.0",
+    "mocha": "^10.8.2",
+    "selenium-webdriver": "^4.26.0",
+    "ts-node": "^10.9.2"
+  }
 }
