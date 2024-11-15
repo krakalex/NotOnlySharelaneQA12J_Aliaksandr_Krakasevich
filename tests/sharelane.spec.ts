@@ -8,6 +8,7 @@ describe('ShareLane', async () => {
 
   beforeEach(async() => {
     driver = await new Builder().forBrowser(Browser.EDGE).build();
+    await driver.manage().setTimeouts({ implicit: 3000 });
     await driver.manage().window().maximize();
     await driver.get('https://sharelane.com/cgi-bin/main.py');
   });
@@ -21,7 +22,8 @@ describe('ShareLane', async () => {
     await driver.findElement(By.css('a[href="../cgi-bin/create_account.py"]')).click();
     await driver.findElement(By.css('input[type="submit"]')).click();
     await driver.findElement(By.css('input[type="submit"]')).click();
-    await driver.wait(until.titleIs('ShareLane: Learn to Test'), 5000)
+    await driver.wait(until.elementIsVisible(driver.findElement(By.className('user'))), 5000);
+    // await driver.wait(until.elementLocated(By.className('user')), 5000);
     const welcomeMessage = await driver.findElement(By.className('user')).getText();
     expect(welcomeMessage).to.include('Hello', 'Unsuccessful login')
   })
